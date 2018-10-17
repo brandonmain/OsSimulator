@@ -5,7 +5,7 @@ The OS will take in a specific configuration file and a specific meta data file 
 
 ### Example Configuration File
 
-Start Simulator Configuration File
+Start Simulator Configuration File<br />
 Version/Phase: 1.0
 File Path: Test_3a.mdf
 Monitor display time {msec}: 20
