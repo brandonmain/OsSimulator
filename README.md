@@ -5,15 +5,15 @@ The OS will take in a specific configuration file and a specific meta data file 
 
 ### Example Configuration File
 
-Start Simulator Configuration File<br />
-Version/Phase: 1.0
-File Path: Test_3a.mdf
-Monitor display time {msec}: 20
-Processor cycle time {msec}: 10
-Scanner cycle time {msec}: 10
-Hard drive cycle time {msec}: 15
-Keyboard cycle time {msec}: 50
-Memory cycle time {msec}: 30
+Start Simulator Configuration File <br />
+Version/Phase: 1.0 <br />
+File Path: Test_3a.mdf <br />
+Monitor display time {msec}: 20 <br />
+Processor cycle time {msec}: 10 <br />
+Scanner cycle time {msec}: 10 <br />
+Hard drive cycle time {msec}: 15 <br />
+Keyboard cycle time {msec}: 50 <br />
+Memory cycle time {msec}: 30 <br />
 Projector cycle time {msec}: 10
 Log: Log to Both
 Log File Path: logfile_1.lgf
