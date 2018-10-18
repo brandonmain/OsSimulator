@@ -5,19 +5,23 @@ The OS will take in a specific configuration file and a specific meta data file 
 
 ### Example Configuration File
 
-Start Simulator Configuration File <br />
-Version/Phase: 1.0 <br />
-File Path: Test_3a.mdf <br />
-Monitor display time {msec}: 20 <br />
-Processor cycle time {msec}: 10 <br />
-Scanner cycle time {msec}: 10 <br />
-Hard drive cycle time {msec}: 15 <br />
-Keyboard cycle time {msec}: 50 <br />
-Memory cycle time {msec}: 30 <br />
-Projector cycle time {msec}: 10 <br />
-Log: Log to Both <br />
-Log File Path: logfile_1.lgf <br />
-End Simulator Configuration File <br />
+Start Simulator Configuration File <br/>
+Version/Phase: 3.0 <br/>
+File Path: Test_3a.mdf <br/>
+Processor cycle time {msec}: 5 <br/>
+Monitor display time {msec}: 22 <br/>
+Hard drive cycle time {msec}: 150 <br/>
+Projector cycle time {msec}: 550 <br/>
+Keyboard cycle time {msec}: 60 <br/>
+Memory cycle time {msec}: 10 <br/>
+Scanner cycle time {msec}: 15 <br/>
+System memory {kbytes}: 2048 <br/>
+Memory block size {kbytes}: 128 <br/>
+Projector quantity: 4 <br/>
+Hard drive quantity: 2 <br/>
+Log: Log to File <br/>
+Log File Path: logfile_1.lgf <br/>
+End Simulator Configuration File <br/>
 
 
 ### Example Meta Data File
