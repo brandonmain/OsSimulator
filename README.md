@@ -26,13 +26,13 @@ End Simulator Configuration File <br/>
 
 ### Example Meta Data File
 
-Start Program Meta-Data Code: <br />
-S{begin}0; A{begin}0; P{run}11; M{allocate}2; <br />
-O{monitor}7; I{hard drive}8; O{projector}20; A{finish}0; <br />
-A{begin}0; M{allocate}4; O{projector}6; M{allocate}3; I{hard drive}7; <br />
-O{hard drive}2; O{hard drive}16; M{allocate}4; <br />
-P{run}6; O{projector}4; A{finish}0; A{begin}0; M{block}6; I{keyboard}17; <br />
-M{block}4; P{run}5; P{run}5; O{hard drive}6; <br />
-P{run}18; A{finish}0; S{finish}0. <br />
-End Program Meta-Data Code. <br />
+Start Program Meta-Data Code: <br/>
+S{begin}0; A{begin}0; P{run}11; M{allocate}2; <br/>
+O{monitor}7; I{hard drive}8; O{projector}20; <br/>
+M{allocate}4; A{finish}0; A{begin}0; O{projector}6; M{allocate}3; I{hard drive}7; <br/>
+O{hard drive}2; O{hard drive}16; M{allocate}4; <br/>
+P{run}6; O{projector}4; A{finish}0; A{begin}0; M{block}6; I{keyboard}17; <br/>
+M{block}4; P{run}5; P{run}5; O{hard drive}6; <br/>
+P{run}18; A{finish}0; S{finish}0. <br/>
+End Program Meta-Data Code. <br/>
 
