@@ -8,9 +8,9 @@ import java.util.*;
 
 public class MetaData
 {
-	private static String[] metaCodes;
-	private static String[] descriptors;
-	private static int[] cycles;
+	private String[] metaCodes;
+	private String[] descriptors;
+	private int[] cycles;
 
 	/**
 	 * Constructs meta data class object given a meta data file.
@@ -29,6 +29,7 @@ public class MetaData
        		Scanner scanFile = new Scanner(file);
 
             //Scan file till we have no more data
+            //
             if(scanFile.hasNext())
             {
             	String temp = scanFile.nextLine();
@@ -67,20 +68,24 @@ public class MetaData
 	 *
 	 * @param      metaData  The meta data
 	 */
-	public static void parseMetaData(LinkedList metaData)
+	public void parseMetaData(LinkedList metaData)
 	{
 		//Iterates through meta data objects
+		//
 		Iterator metaIndex = metaData.iterator();
 
 		//Index of meta data
+		//
 		int[] index = new int[1];
 		index[0] = 0;
 
 		//Variables to convert meta objects to strings
+		//
 		Object o;
 		String s;
 
-		//Varibales to scan and store meta data
+		//Variables to scan and store meta data
+		//
 		Scanner scan;
 		boolean isDone = false;
 		metaCodes = new String[metaData.size()];
@@ -88,6 +93,7 @@ public class MetaData
 		cycles = new int[metaData.size()];
 
 		//Loop until reach the end of meta data
+		//
 		while(isDone == false)
 		{
 			o = metaIndex.next();
@@ -96,35 +102,39 @@ public class MetaData
 			scan.useDelimiter("\\{|\\}");
 
 			//Get meta code
+			//
 			metaCodes[index[0]] = scan.next();
 
 			//Get the descriptor
+			//
 			descriptors[index[0]] = scan.next();
 
 			//Get the cycles
+			//
 			cycles[index[0]] = Integer.parseInt(scan.next());
 
 			//Check if at the end of meta data
+			//
 			if(metaCodes[index[0]].equals("S"))
 			{
 				if(descriptors[index[0]].equals("finish") || descriptors[index[0]].equals("end"))
 				{
 					//If at the end then set to done
+					//
 					isDone = true;
 				}
 			}
 
 			//Increment the index location
+			//
 			index[0]++;
 		}
-
-		print();
 	}
 
 	/**
 	 * @return    length of meta data
 	 */
-	public static int size()
+	public int size()
 	{
 		return metaCodes.length;
 	}
@@ -136,7 +146,7 @@ public class MetaData
 	 *
 	 * @return     The code.
 	 */
-	public static String getCode(int index)
+	public String getCode(int index)
 	{
 		return metaCodes[index];
 	}
@@ -148,7 +158,7 @@ public class MetaData
 	 *
 	 * @return     The descriptor.
 	 */
-	public static String getDescriptor(int index)
+	public String getDescriptor(int index)
 	{
 		return descriptors[index];
 	}
@@ -160,7 +170,7 @@ public class MetaData
 	 *
 	 * @return     The cycle.
 	 */
-	public static int getCycle(int index)
+	public int getCycle(int index)
 	{
 		return cycles[index];
 	}
@@ -168,7 +178,7 @@ public class MetaData
 	/**
 	 * Print meta data
 	 */
-	private static void print()
+	private void print()
 	{
 		for (int i = 0; i < metaCodes.length; i++) 
 		{

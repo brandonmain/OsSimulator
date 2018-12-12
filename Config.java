@@ -1,26 +1,31 @@
-
+/**
+ * Class that defines the configuration of 
+ * the operating system simulation.
+ */
 import java.io.*;
 import java.util.*;
 
 public class Config
 {
-	private static float version;
-	private static File metaFilePath;
-	private static int monitor;
-	private static int processor;
-	private static int scanner;
-	private static int hardDrive;
-	private static int keyboard;
-	private static int memory;
-	private static int projector;
-	private static boolean logToMonitor;
-	private static boolean logToFile;
-	private static String log;
-	private static File logFile;
-	private static int memorySize;
-	private static int memoryBlockSize;
-	private static int projectorQty;
-	private static int hardDriveQty;
+	public float version;
+	public File metaFilePath;
+	public int quantom;
+	public String scheduleType;
+	public int monitor;
+	public int processor;
+	public int scanner;
+	public int hardDrive;
+	public int keyboard;
+	public int memory;
+	public int projector;
+	public boolean logToMonitor;
+	public boolean logToFile;
+	public String log;
+	public File logFile;
+	public int memorySize;
+	public int memoryBlockSize;
+	public int projectorQty;
+	public int hardDriveQty;
 
 	/**
 	 * Constructs the configuration.
@@ -50,7 +55,9 @@ public class Config
         else //File is good, setup simulator configuration.
         {
                 File file = new File(args[0]);
-    			String[] hold = new String[17];//Hold values to put into configuration
+                //Hold values to put into configuration
+                //
+    			String[] hold = new String[19];
    				int[] index = new int[1];
 
    				Arrays.fill(hold, null);
@@ -60,7 +67,8 @@ public class Config
                 {
                		Scanner scanFile = new Scanner(file);
 
-                    //Scan file till we have no more data
+                    //Scan file till we have no more data.
+                    //
         	       	while (scanFile.hasNext()) 
                     {
 
@@ -81,6 +89,7 @@ public class Config
                 }
 
           		//Set the Simulators config variables.
+          		//
                 setConfig(hold);
     	} 
 	}
@@ -93,21 +102,24 @@ public class Config
 	private void setConfig(String[] hold)
 	{	
 		//Set all elements of configuration.
+		//
 		version = Float.parseFloat(hold[0]);
 		metaFilePath = new File(hold[1]);
-		processor = Integer.parseInt(hold[2]);
-		monitor = Integer.parseInt(hold[3]);
-		hardDrive = Integer.parseInt(hold[4]);
-		projector = Integer.parseInt(hold[5]);
-		keyboard = Integer.parseInt(hold[6]);
-		memory = Integer.parseInt(hold[7]);
-		scanner = Integer.parseInt(hold[8]);
-		memorySize = Integer.parseInt(hold[9]);
-		memoryBlockSize = Integer.parseInt(hold[10]);
-		projectorQty = Integer.parseInt(hold[11]);
-		hardDriveQty =Integer.parseInt(hold[12]);
-		getMemSize(hold[15], hold[16]);
-		log = hold[13];
+		quantom = Integer.parseInt(hold[2]);
+		scheduleType = hold[3];
+		processor = Integer.parseInt(hold[4]);
+		monitor = Integer.parseInt(hold[5]);
+		hardDrive = Integer.parseInt(hold[6]);
+		projector = Integer.parseInt(hold[7]);
+		keyboard = Integer.parseInt(hold[8]);
+		memory = Integer.parseInt(hold[9]);
+		scanner = Integer.parseInt(hold[10]);
+		memorySize = Integer.parseInt(hold[11]);
+		memoryBlockSize = Integer.parseInt(hold[12]);
+		projectorQty = Integer.parseInt(hold[13]);
+		hardDriveQty =Integer.parseInt(hold[14]);
+		getMemSize(hold[17], hold[18]);
+		log = hold[15];
 
 			
 		if(log.equals("Log to File"))
@@ -126,9 +138,9 @@ public class Config
 			logToMonitor = true;
 		}
 
-		if(hold[14] != null)
+		if(hold[16] != null)
 		{
-			logFile = new File(hold[14]);
+			logFile = new File(hold[16]);
 			if(!logFile.exists())
 			{
 				try
@@ -149,7 +161,7 @@ public class Config
      *
      * @param      scanString  The scan string
      */
-    private static void scanStringAndToss(Scanner scanString, String[] hold){
+    private void scanStringAndToss(Scanner scanString, String[] hold){
 
         if(scanString.hasNext())
         {
@@ -167,13 +179,13 @@ public class Config
                 
                 if(temp.equals("kbytes") || temp.equals("Mbytes") || temp.equals("Gbytes"))
                 {
-                	if(hold[15] == null)
+                	if(hold[17] == null)
                 	{
-                		hold[15] = temp;
+                		hold[17] = temp;
                 	}
                 	else
                 	{
-                		hold[16] = temp;
+                		hold[18] = temp;
                 	}
                 }
             }
@@ -189,7 +201,7 @@ public class Config
      * @param      hold        String array that holds the config data
      * @param      index       Index used to keep track of hold[]
      */
-    private static void scanStringAndKeep(Scanner scanString, String[] hold, int[] index){
+    private void scanStringAndKeep(Scanner scanString, String[] hold, int[] index){
 
        if(scanString.hasNext())
         {
@@ -204,9 +216,10 @@ public class Config
 	 *
 	 * @param      memoryType  The memory type
 	 */
-	private static void getMemSize(String memoryType, String blockMemoryType)
+	private void getMemSize(String memoryType, String blockMemoryType)
 	{
 		//System memory size
+		//
 		if(memoryType.equals("kbytes"))
 		{
 			memorySize = memorySize*1000*8;
@@ -222,6 +235,7 @@ public class Config
 
 
 		//Block memory size
+		//
 		if(blockMemoryType.equals("kbytes"))
 		{
 			memoryBlockSize = memoryBlockSize*1000*8;
@@ -238,11 +252,14 @@ public class Config
 
 	/**
 	 * Print the contents of all the config varibales.
+	 * Used for debugging.
 	 */
 	private void print()
 	{
 		System.out.println(version);
 		System.out.println(metaFilePath);
+		System.out.println(quantom);
+		System.out.println(scheduleType);
 		System.out.println(processor);
 		System.out.println(monitor);
 		System.out.println(hardDrive);
@@ -258,8 +275,26 @@ public class Config
 		System.out.println(logFile);
 	}
 
-	public static File getMetaFile()
+	/**
+	 * Returns the meta data file.
+	 *
+	 * @return     The meta file.
+	 */
+	public File getMetaFile()
 	{
 		return metaFilePath;
 	}
+
+
+	/**
+	 * Gets the CPU schedule type.
+	 *
+	 * @return     The schedule type.
+	 */
+	public String getScheduleType()
+	{
+		return scheduleType;
+	}
+
+
 }

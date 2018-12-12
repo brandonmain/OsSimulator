@@ -7,10 +7,24 @@
 
 public class SubProcess implements Runnable
 {
+	private String code;
+	private String descriptor;
+	private int cycle;
 
-	private static String code;
-	private static String descriptor;
-	private static int cycle;
+	public SubProcess()
+	{
+		this.code = "X";
+		this.descriptor = "X";
+		this.cycle = 0;
+	}
+
+	public SubProcess(SubProcess s)
+	{
+		this.code = s.code;
+		this.descriptor = s.descriptor;
+		this.cycle = s.cycle;
+	}
+
 
 	public SubProcess(String code, String descriptor, int cycle)
 	{
@@ -20,13 +34,43 @@ public class SubProcess implements Runnable
 	}
 
 	/**
+	 * Gets the code.
+	 *
+	 * @return     The code.
+	 */
+	public String getCode()
+	{
+		return code;
+	}
+
+	/**
 	 * Gets the descriptor.
 	 *
 	 * @return     The descriptor.
 	 */
-	public static String getDescriptor()
+	public String getDescriptor()
 	{
 		return descriptor;
+	}
+
+	/**
+	 * Gets the cycle.
+	 *
+	 * @return     The cycle.
+	 */
+	public int getCycle()
+	{
+		return cycle;
+	}
+
+	/**
+	 * Print contents of subprocess.
+	 */
+	public void print()
+	{
+		System.out.println(this.code);
+		System.out.println(this.descriptor);
+		System.out.println(this.cycle);
 	}
 
 	/**

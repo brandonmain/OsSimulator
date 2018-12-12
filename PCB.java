@@ -20,6 +20,14 @@ public class PCB
 	public PCB()
 	{
 		//Declare process is ready to run.
+		//
 		processState = 1;
+	}
+
+	public PCB(PCB p)
+	{
+		//Declare process is ready to run.
+		//
+		processState = p.processState;
 	}
 }
